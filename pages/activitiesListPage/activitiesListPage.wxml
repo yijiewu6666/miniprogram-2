@@ -1,0 +1,18 @@
+<view class="activities-list">
+  <block wx:for="{{activities}}" wx:key="index">
+    <view class="activity-item">
+      <text>Activity Name: {{item.name}}</text>
+      <text>City: {{item.city}}</text>
+      <text>Number of People: {{item.numberOfPeople}}</text>
+      <text>Activity Type: {{item.activityType}}</text>
+      <text>Duration: {{item.duration}}</text>
+      <text>Date: {{item.date}}</text>
+      <text>Description: {{item.description}}</text>
+      <image src="{{item.imageUrl}}" wx:if="{{item.imageUrl}}" style="width: 100%; height: auto; margin-top: 10px;"></image>
+      <button bindtap="deleteActivity" data-index="{{index}}">Delete</button>
+      <button bindtap="sendMessage" data-index="{{index}}" class="message-button">Message</button>
+      <button bindtap="likeActivity" data-index="{{index}}" class="like-button">Like</button>
+    </view>
+  </block>
+</view>
+

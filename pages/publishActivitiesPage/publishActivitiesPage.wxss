@@ -1,0 +1,86 @@
+/* General container for input fields, pickers, and buttons */
+.container {
+    display: block;
+    width: 100%; /* Full width of the container */
+    padding: 0 15px; /* Padding on both sides */
+  }
+  
+  /* Base style for inputs, pickers, and buttons */
+  .input-field, .picker-field, .button-field {
+    background-color: #f0f0f0; /* Light grey background */
+    border: 1px solid #dcdcdc; /* Light border color */
+    border-radius: 15px; /* Rounded corners */
+    padding: 15px; /* Padding to increase tap area */
+    margin: 10px 0; /* Margin for spacing between fields */
+    font-size: 16px; /* Font size */
+    color: #000; /* Text color for inputs */
+    display: block; /* Ensuring block-level display */
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Including padding and border in the width */
+    text-align: left; /* Align text to the left */
+  }
+  
+  /* Styles specifically for buttons to mimic input and picker styles */
+  .button-field {
+    background-color: #1AAD19; /* WeChat green, adjust as necessary */
+    color: white; /* Text color for buttons */
+    text-align: center; /* Center text for aesthetic preference */
+  }
+  
+  /* Ensuring picker components fill the container properly */
+  picker, .picker-field picker {
+    width: 100%; /* Full width to ensure alignment */
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Style adjustments for picker views */
+  picker-view {
+    display: block;
+    width: 100%;
+  }
+  
+  /* Styling for the description textarea, consistent with other inputs */
+  .textarea-field {
+    background-color: #ffffff; /* White background for contrast */
+    border: 1px solid #cccccc; /* Consistent light border */
+    border-radius: 4px; /* Slightly rounded corners */
+    padding: 10px; /* Comfortable padding */
+    width: 100%; /* Full width */
+    margin: 10px 0; /* Consistent vertical spacing */
+  }
+  
+  /* Apply consistent styling to the image choose button */
+  .choose-image-button {
+    display: block;
+    width: 100%; /* Ensure full width for consistency */
+    padding: 15px; /* Uniform padding */
+    background-color: #1AAD19; /* Consistent button color */
+    color: white; /* Text color */
+    border-radius: 15px; /* Rounded corners to match inputs/pickers */
+    border: none; /* No additional border */
+    margin: 10px 0; /* Maintain spacing */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional shadow for depth */
+  }
+  
+  /* Style for the trending activities container */
+  .trending-container {
+    margin-bottom: 15px; /* Add space between trending activities and button */
+  }
+  
+ /* Style for the Activities button container */
+.button-container {
+    display: block; /* Change to block for vertical placement */
+    text-align: center; /* Center the button horizontally */
+    margin-top: 10px; /* Add space above the button */
+  }
+  
+  
+  /* Style for individual circle buttons (optional) */
+  .circle-button {
+    width: 50px; /* Adjust width as desired */
+    height: 50px; /* Adjust height as desired */
+    border-radius: 50%; /* Create circular shape */
+    margin-left: 10px; /* Add spacing between buttons */
+    /* Other styles for circle buttons (background color, etc.) */
+  }

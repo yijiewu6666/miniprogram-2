@@ -1,0 +1,6 @@
+<view class="message-container">
+  <view wx:for="{{ messages }}" wx:key="index" class="message-item">
+    <text class="sender-id">From: {{ item.senderId }}</text>
+    <text class="message-content">{{ item.message }}</text>
+  </view>
+</view>

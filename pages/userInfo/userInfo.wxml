@@ -1,0 +1,29 @@
+<view class="info-container">
+  <view class="form-group">
+    <text class="form-label">Name:</text>
+    <input type="text" class="form-input" placeholder="Enter your name" bindinput="nameInput" />
+  </view>
+  <view class="form-group">
+    <text class="form-label">School:</text>
+    <input type="text" class="form-input" placeholder="Enter your school" bindinput="schoolInput" />
+  </view>
+  <view class="form-group">
+    <text class="form-label">Interests:</text>
+    <textarea class="form-textarea" placeholder="Enter your interests" bindinput="interestInput"></textarea>
+  </view>
+  <view class="form-group">
+    <text class="form-label">Description:</text>
+    <textarea class="form-textarea" placeholder="Enter your description" bindinput="descriptionInput"></textarea>
+  </view>
+  <view class="upload-pics">
+    <text class="upload-text">Upload Photos (Max 3):</text>
+    <view class="upload-button" bindtap="chooseImage">
+      <text class="upload-text">+ Choose Photos</text>
+    </view>
+    <view class="image-preview" wx:for="{{ images }}" wx:for-item="image" wx:key="index">
+      <image class="preview-image" src="{{ image }}" />
+      <icon class="remove-icon" type="delete" bindtap="removeImage" data-index="{{ index }}" />
+    </view>
+  </view>
+  <button type="primary" bindtap="submitInfo">Submit Info</button>
+</view>

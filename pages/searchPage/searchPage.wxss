@@ -1,0 +1,47 @@
+/* searchPage.wxss */
+.input-field {
+    padding: 10px;
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+  }
+  
+/* Existing styles */
+
+/* Style for circular buttons */
+.circle-button {
+    display: inline-block; /* Aligns buttons side by side */
+    width: 50px; /* Smaller width for the button */
+    height: 50px; /* Smaller height for the button */
+    line-height: 50px; /* Center the text vertically */
+    margin: 10px; /* Add some space around the buttons */
+    border-radius: 100%; /* Make the buttons round */
+    background-color: #FFA500; /* Light blue background */
+    border: none; /* No border */
+    text-align: center; /* Center the text horizontally */
+    color: white; /* White text color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow for some depth */
+    font-size: 14px; /* Adjust the font size as desired */
+    vertical-align: middle; /* Aligns inline-block elements to middle */
+  }
+  
+  /* Container for the buttons */
+  .button-container {
+    display: flex;
+    justify-content: space-around; /* Distribute space around items */
+    align-items: center; /* Center items vertically */
+  }
+  /* FAB container style (modified) */
+.fab-container {
+    bottom: 20px; /* Distance from bottom of its parent element */
+    right: 20px; /* Distance from right of its parent element */
+    z-index: 10; /* Ensure it's above other elements */
+  }
+  
+/* FAB Button style (modified) */
+/* FAB Button (absolute positioning) */
+.fab-button {
+    position: absolute; /* Absolute positioning within viewport */
+    bottom: 140px; /* Distance from bottom of viewport */
+    right: 140px; /* Distance from right of viewport */
+    z-index: 10; /* Ensure it's above other elements */
+  }

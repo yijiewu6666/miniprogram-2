@@ -1,0 +1,53 @@
+/* Container for all activities */
+.activities-list {
+    padding: 10px;
+    background-color: #f5f5f5; /* Light grey background for the list */
+}
+
+/* Individual activity item styling */
+.activity-item {
+    background-color: #ffffff; /* White background for each item */
+    border: 1px solid #e1e1e1; /* Light grey border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Padding inside each item */
+    margin-bottom: 10px; /* Space between items */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: relative; /* Needed for absolute positioning of the delete button */
+}
+
+/* Styling for text elements within each item */
+.activity-item text {
+    display: block; /* Each text on a new line */
+    margin: 5px 0; /* Vertical margin for spacing */
+    color: #333; /* Dark grey text color for readability */
+}
+
+/* More specific styling for the activity name for emphasis */
+.activity-item text:first-child {
+    font-weight: bold; /* Make the first text (name) bolder */
+    font-size: 18px; /* Larger font size for the activity name */
+    color: #000; /* Black color for emphasis */
+}
+
+/* Delete button specific styling */
+.delete-button {
+    background-color: red;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 50px; /* Fully rounded edges for the button */
+    position: absolute; /* Position absolute within the activity item */
+    top: 10px; /* Positioned at the top right inside the item */
+    right: 10px; /* Maintain consistent spacing from the right edge */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for the button */
+}
+.like-button {
+    /* Styles for the like button */
+    background-color: #fff; /* White background */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 10px; /* Adjust padding as desired */
+    font-size: 14px; /* Font size */
+    color: #333; /* Text color */
+    margin-top: 10px; /* Add some space above the button */
+  }

@@ -1,0 +1,40 @@
+<view class="container">
+    <button bindtap="chooseImage">Choose Image</button>
+  <view class="image-preview">
+    <image src="{{imageUrl}}" mode="aspectFit" wx:if="{{imageUrl}}" />
+  </view>
+    <input class="input-field" placeholder="Activity Name" bindinput="onInputActivityName" />
+    <input class="input-field" placeholder="City" bindinput="onInputCity" />
+
+    <!-- Picker for number of people -->
+    <view class="input-field picker-field">
+        <picker mode="selector" range="{{peopleArray}}" bindchange="updatePeople">
+            <view class="picker-content">Number of People: {{peopleArray[peopleIndex]}}</view>
+        </picker>
+    </view>
+
+    <!-- Picker for activity type -->
+    <view class="input-field picker-field">
+        <picker mode="selector" range="{{typeArray}}" bindchange="updateType">
+            <view class="picker-content">Activity Type: {{typeArray[typeIndex]}}</view>
+        </picker>
+    </view>
+
+    <!-- Picker for duration -->
+    <view class="input-field picker-field">
+        <picker mode="selector" range="{{durationArray}}" bindchange="updateDuration">
+            <view class="picker-content">Duration: {{durationArray[durationIndex]}}</view>
+        </picker>
+    </view>
+
+    <!-- Picker for date -->
+    <view class="input-field picker-field">
+        <picker mode="date" bindchange="updateDate">
+            <view class="picker-content">Date: {{date}}</view>
+        </picker>
+    </view>
+
+    <textarea class="textarea-field" placeholder="Description" bindinput="onInputDescription"></textarea>
+    <button class="submit-button" bindtap="submitActivity">Publish</button>
+</view>
+

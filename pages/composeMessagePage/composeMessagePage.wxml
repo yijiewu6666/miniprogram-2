@@ -1,0 +1,4 @@
+<view class="message-container">
+  <textarea class="message-input" placeholder="Enter your message..." bindinput="messageInput"></textarea>
+  <button bindtap="sendMessage" class="send-button">Send</button>
+</view>

@@ -1,0 +1,46 @@
+/* Existing styles (if any, from other pages) */
+/* Individual activity item styling */
+.activity-item {
+    background-color: #ffffff; /* White background for each item */
+    border: 1px solid #e1e1e1; /* Light grey border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Padding inside each item */
+    margin-bottom: 10px; /* Space between items */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: relative; /* Needed for absolute positioning of the delete button */
+}
+
+/* Styling for text elements within each item */
+.activity-item text {
+    display: block; /* Each text on a new line */
+    margin: 5px 0; /* Vertical margin for spacing */
+    color: #333; /* Dark grey text color for readability */
+}
+
+/* More specific styling for the activity name for emphasis */
+.activity-item text:first-child {
+    font-weight: bold; /* Make the first text (name) bolder */
+    font-size: 18px; /* Larger font size for the activity name */
+    color: #000; /* Black color for emphasis */
+}
+.watch-page {
+    /* Styles for the watch page container */
+    padding: 20px;
+  }
+  
+  .watch-title {
+    /* Styles for the watchlist title */
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .no-activities {
+    /* Styles for the "no activities" message */
+    text-align: center;
+    font-style: italic;
+    margin-top: 20px;
+  }
+  
+  /* Existing activity item styles (from activitylistpage.wxss) */
+  

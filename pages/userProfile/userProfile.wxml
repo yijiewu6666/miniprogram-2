@@ -1,0 +1,25 @@
+<view class="info-container">
+  <view class="user-info">
+    <text class="info-label">Name:</text>
+    <text class="info-text">{{ nickName }}</text>
+  </view>
+  <view class="user-info">
+    <text class="info-label">School:</text>
+    <text class="info-text">{{ school }}</text>
+  </view>
+  <view class="user-info">
+    <text class="info-label">Interests:</text>
+    <text class="info-text">{{ interest }}</text>
+  </view>
+  <view class="user-info">
+    <text class="info-label">Description:</text>
+    <text class="info-text">{{ description }}</text>
+  </view>
+  <view class="image-preview" wx:if="{{ images.length > 0 }}">
+    <text class="upload-text">Uploaded Photos:</text>
+    <view wx:for="{{ images }}" wx:for-item="image" wx:key="index">
+      <image class="preview-image" src="{{ image }}" />
+    </view>
+  </view>
+  <button type="primary" bindtap="openEditInfoPage">Edit Profile</button>
+</view>

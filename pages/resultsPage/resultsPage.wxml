@@ -1,0 +1,11 @@
+<view class="results-container">
+  <text>Search Results for {{query.city}}, {{query.date}}, {{query.people}} people, {{query.type}}</text>
+  <view class="results-list">
+    <block wx:for="{{results}}" wx:key="unique">
+      <view class="result-item">
+        <text>{{item.name}}</text>
+        <text>{{item.description}}</text>
+      </view>
+    </block>
+  </view>
+</view>

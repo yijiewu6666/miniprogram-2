@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/searchPage/searchPage",
+    "pages/resultsPage/resultsPage",
+    "pages/publishActivitiesPage/publishActivitiesPage",
+    "pages/trendingPage/trendingPage",
+    "pages/activitiesListPage/activitiesListPage",
+    "pages/likeListPage/likeListPage",
+    "pages/messagePage/messagePage",
+    "pages/composeMessagePage/composeMessagePage",
+    "pages/userInfo/userInfo",
+    "pages/userProfile/userProfile"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

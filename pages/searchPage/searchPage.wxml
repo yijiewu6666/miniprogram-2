@@ -1,0 +1,42 @@
+<view>
+  <!-- City Dropdown -->
+  <picker mode="selector" value="{{cityIndex}}" range="{{cityArray}}" bindchange="updateCity">
+    <view class="input-field">City: {{cityArray[cityIndex]}}</view>
+  </picker>
+
+  <!-- Date Picker -->
+  <picker mode="date" value="{{date}}" start="2020-01-01" end="2030-12-31" bindchange="updateDate">
+    <view class="input-field">Date: {{date}}</view>
+  </picker>
+
+  <!-- Number of People -->
+  <picker mode="selector" value="{{peopleIndex}}" range="{{peopleArray}}" bindchange="updatePeople">
+    <view class="input-field">Number of People: {{peopleArray[peopleIndex]}}</view>
+  </picker>
+
+  <!-- Activity Type Dropdown -->
+  <picker mode="selector" value="{{typeIndex}}" range="{{typeArray}}" bindchange="updateType">
+    <view class="input-field">Activity Type: {{typeArray[typeIndex]}}</view>
+  </picker>
+
+  <picker mode="selector" value="{{durationIndex}}" range="{{durationArray}}" bindchange="updateDuration">
+    <view class="input-field">Duration Type: {{durationArray[durationIndex]}}</view>
+  </picker>
+
+  <button bindtap="submitSearch">Search</button>
+</view>
+
+<view class="trending-container">
+  <text class="trending-title">Trending Activities</text>
+  <button bindtap="goToActivitiesList" class="fab-button">Activities</button>
+</view>
+
+  <view class="button-container" style="position: fixed; bottom: 0; width: 100%;">
+  <button class="circle-button" bindtap="goToPublishActivities">Publish</button>
+  <button class="circle-button" bindtap="goToWatchActivities">Watch</button>
+  <button class="circle-button" bindtap="goToChat">Message</button>
+  <button class="circle-button" bindtap="goToInfo">Info</button>
+</view>
+
+
+
