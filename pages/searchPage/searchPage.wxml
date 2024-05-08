@@ -1,27 +1,27 @@
 <view>
-  <!-- City Dropdown -->
-  <picker mode="selector" value="{{cityIndex}}" range="{{cityArray}}" bindchange="updateCity">
-    <view class="input-field">City: {{cityArray[cityIndex]}}</view>
-  </picker>
-
-  <!-- Date Picker -->
-  <picker mode="date" value="{{date}}" start="2020-01-01" end="2030-12-31" bindchange="updateDate">
-    <view class="input-field">Date: {{date}}</view>
-  </picker>
-
-  <!-- Number of People -->
-  <picker mode="selector" value="{{peopleIndex}}" range="{{peopleArray}}" bindchange="updatePeople">
-    <view class="input-field">Number of People: {{peopleArray[peopleIndex]}}</view>
-  </picker>
-
-  <!-- Activity Type Dropdown -->
-  <picker mode="selector" value="{{typeIndex}}" range="{{typeArray}}" bindchange="updateType">
-    <view class="input-field">Activity Type: {{typeArray[typeIndex]}}</view>
-  </picker>
-
-  <picker mode="selector" value="{{durationIndex}}" range="{{durationArray}}" bindchange="updateDuration">
-    <view class="input-field">Duration Type: {{durationArray[durationIndex]}}</view>
-  </picker>
+    <view class="top-search-container">
+        <input type="text" placeholder="Search..." class="search-input"/>
+        <picker mode="selector" value="{{cityIndex}}" range="{{cityArray}}" bindchange="updateCity">
+            <view class="input-field">City: {{cityArray[cityIndex]}}</view>
+        </picker>
+    </view>
+    <view class="search-container">
+        <button bindtap="toggleSearchOptions" class="toggle-button">Search by</button>
+        <view class="additional-options" hidden="{{!showOptions}}">
+            <picker mode="date" value="{{date}}" start="2020-01-01" end="2030-12-31" bindchange="updateDate">
+                <view class="input-field">Date: {{date}}</view>
+            </picker>
+            <picker mode="selector" value="{{peopleIndex}}" range="{{peopleArray}}" bindchange="updatePeople">
+                <view class="input-field">Number of People: {{peopleArray[peopleIndex]}}</view>
+            </picker>
+            <picker mode="selector" value="{{typeIndex}}" range="{{typeArray}}" bindchange="updateType">
+                <view class="input-field">Activity Type: {{typeArray[typeIndex]}}</view>
+            </picker>
+            <picker mode="selector" value="{{durationIndex}}" range="{{durationArray}}" bindchange="updateDuration">
+                <view class="input-field">Duration Type: {{durationArray[durationIndex]}}</view>
+            </picker>
+        </view>
+    </view>
 
   <button bindtap="submitSearch">Search</button>
 </view>

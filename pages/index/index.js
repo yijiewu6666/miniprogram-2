@@ -1,53 +1,93 @@
-// index.js
-const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
-
 Page({
-  data: {
-    motto: 'UK PlayGround',
-    userInfo: {
-      avatarUrl: defaultAvatarUrl,
-      nickName: '',
+    data: {
+        motto: 'UK PlayGround',
+        userInfo: {
+            avatarUrl: '', // Set a default avatar URL
+            nickName: '',
+        },
+        hasUserInfo: false,
+        canIUseGetUserProfile: wx.canIUse('getUserProfile'),
+        canIUseNicknameComp: wx.canIUse('input.type.nickname'),
     },
-    hasUserInfo: false,
-    canIUseGetUserProfile: wx.canIUse('getUserProfile'),
-    canIUseNicknameComp: wx.canIUse('input.type.nickname'),
-  },
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onChooseAvatar(e) {
-    const { avatarUrl } = e.detail
-    const { nickName } = this.data.userInfo
-    this.setData({
-      "userInfo.avatarUrl": avatarUrl,
-      hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
-    })
-  },
-  onInputChange(e) {
-    const nickName = e.detail.value;
-    this.setData({
-      "userInfo.nickName": nickName,
-    });
-    // Check if nickname is not empty and navigate
-    if (nickName && nickName.trim() !== '') {
-      wx.navigateTo({
-        url: '/pages/searchPage/searchPage' 
-      });
-    }
-  },
-  getUserProfile(e) {
-    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-    wx.getUserProfile({
-      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
-        console.log(res)
+
+    // Function to navigate to logs
+    bindViewTap() {
+        wx.navigateTo({
+            url: '../logs/logs'
+        });
+    },
+
+    // Function to handle avatar selection
+    onChooseAvatar(e) {
+        const { avatarUrl } = e.detail;
+        const { nickName } = this.data.userInfo;
         this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    })
-  },
-})
+            "userInfo.avatarUrl": avatarUrl,
+            hasUserInfo: nickName && avatarUrl,
+        });
+    },
+
+    // Function to handle nickname input change
+    onInputChange(e) {
+        const nickName = e.detail.value;
+        this.setData({
+            "userInfo.nickName": nickName,
+            hasUserInfo: nickName && this.data.userInfo.avatarUrl,
+        });
+    },
+
+    getUserProfile(e) {
+        wx.getUserProfile({
+            desc: '展示用户信息',
+            success: (res) => {
+                console.log('User profile received:', res.userInfo);
+                this.setData({
+                    userInfo: res.userInfo,
+                    hasUserInfo: true,
+                });
+    
+                wx.login({
+                    success: loginRes => {
+                        if (loginRes.code) {
+                            wx.request({
+                                url: 'http://localhost:3000/status/login', // Updated link with GET method
+                                method: 'GET',
+                                data: { code: loginRes.code },
+                                success: loginServerRes => {
+                                    const openId = loginServerRes.data.openId;
+                                    console.log('OpenId received:', openId);
+    
+                                    // Now send the user info with the openId
+                                    wx.request({
+                                        url: 'http://localhost:3000/user', // Ensure this endpoint exists and can handle POST
+                                        method: 'POST',
+                                        data: {
+                                            nickName: res.userInfo.nickName,
+                                            avatarUrl: res.userInfo.avatarUrl,
+                                            openId: openId,
+                                        },
+                                        success: serverRes => {
+                                            console.log('Server response:', serverRes.data);
+                                            // After saving user info, navigate to the next page
+                                            wx.navigateTo({
+                                                url: '/pages/searchPage/searchPage' 
+                                            });
+                                        },
+                                        fail: error => {
+                                            console.error('Failed to send user info:', error);
+                                        }
+                                    });
+                                },
+                                fail: error => {
+                                    console.error('Failed to send login code:', error);
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    }
+    
+});
+

@@ -8,9 +8,14 @@ Page({
       typeArray: ['Entertainment', 'Educational', 'Sport', 'Cultural'],
       typeIndex: 0,
       durationArray: ['当天', '1-3天', '4-7天', '大于7天'],
-      durationIndex: 0
+      durationIndex: 0,
+      showOptions: false // Control the visibility of the additional dropdowns
     },
-
+    toggleSearchOptions: function() {
+        this.setData({
+          showOptions: !this.data.showOptions // Toggle the visibility
+        });
+      },
     // Function to update the selected index for city
     updateCity: function(e) {
       this.setData({
@@ -45,25 +50,40 @@ Page({
       },
   
     // Function to handle the search submission
-    submitSearch: function() {
-      // Fetch values from arrays using selected indexes
-      const city = this.data.cityArray[this.data.cityIndex];
-      const date = this.data.date;
-      const numberOfPeople = this.data.peopleArray[this.data.peopleIndex];
-      const activityType = this.data.typeArray[this.data.typeIndex];
-      const durationType = this.data.durationArray[this.data.durationIndex];
+submitSearch: function() {
+    const city = this.data.cityArray[this.data.cityIndex];
+    const date = this.data.date;
+    const numberOfPeople = this.data.peopleArray[this.data.peopleIndex];
+    const activityType = this.data.typeArray[this.data.typeIndex];
+    const durationType = this.data.durationArray[this.data.durationIndex];
   
-      // Navigate to the results page with query parameters
-      wx.navigateTo({
-        url: `/pages/resultsPage/resultsPage?city=${encodeURIComponent(city)}&date=${encodeURIComponent(date)}&people=${encodeURIComponent(numberOfPeople)}&type=${encodeURIComponent(activityType)}&duration=${encodeURIComponent(durationType)}`
-      });
-    },
-    // Method to navigate to the publish activities page
-    goToPublishActivities: function() {
-    wx.navigateTo({
-      url: '/pages/publishActivitiesPage/publishActivitiesPage' // Adjust the URL as necessary
+    // Prepare the request payload
+    const payload = {
+      city, date, numberOfPeople, activityType, duration: durationType
+    };
+  
+    // Send the search data to the backend
+    wx.request({
+      url: 'http://localhost:3000/search', // Replace with your deployed server URL in production
+      method: 'POST',
+      data: payload,
+      success: (res) => {
+        // Handle the response from the server
+        console.log('Search results:', res.data);
+        // Optionally navigate to the results page and pass the results via options or global data
+        wx.navigateTo({
+          url: `/pages/resultsPage/resultsPage?city=${encodeURIComponent(city)}&date=${encodeURIComponent(date)}&people=${encodeURIComponent(numberOfPeople)}&type=${encodeURIComponent(activityType)}&duration=${encodeURIComponent(durationType)}`,
+          success: function() {
+            // Set the results to global data or something similar if needed
+          }
+        });
+      },
+      fail: (error) => {
+        console.error('Failed to fetch data:', error);
+      }
     });
   },
+  
 
   // Method to navigate to the trending activities page
     goToTrending: function() {
