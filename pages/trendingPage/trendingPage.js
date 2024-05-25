@@ -7,8 +7,15 @@ Page({
         // Add more items here...
       ]
     },
-    onLoad: function() {
-      // Here you can load trending activities data, for example from an API
-    }
+    onLoad: function(options) {
+        const eventChannel = this.getOpenerEventChannel();
+        // Listen for data sent from the previous page
+        eventChannel.on('acceptDataFromOpeningPage', function(data) {
+          console.log(data); // Log to see if data is received
+          this.setData({
+            trendingContent: data.data
+          });
+        });
+      }
   });
   

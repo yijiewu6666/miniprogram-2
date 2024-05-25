@@ -16,7 +16,7 @@
     <text class="info-text">{{ description }}</text>
   </view>
   <view class="image-preview" wx:if="{{ images.length > 0 }}">
-    <text class="upload-text">Uploaded Photos:</text>
+    <text class="upload-text">Photos:</text>
     <view wx:for="{{ images }}" wx:for-item="image" wx:key="index">
       <image class="preview-image" src="{{ image }}" />
     </view>

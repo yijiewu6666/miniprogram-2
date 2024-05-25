@@ -18,4 +18,9 @@ Page({
         // Update storage (replace with your logic)
         wx.setStorageSync('likedActivities', likedActivities);
       },
+      navigateToComposeMessage: function() {
+        wx.navigateTo({
+          url: '/pages/composeMessagePage/composeMessagePage'  // Adjust the URL based on your actual page path
+        });
+      },
   });

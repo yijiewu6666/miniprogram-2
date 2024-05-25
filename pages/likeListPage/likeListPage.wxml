@@ -11,6 +11,7 @@
         <text>Date: {{item.date}}</text>
         <text>Description: {{item.description}}</text>
         <image src="{{item.imageUrl}}" wx:if="{{item.imageUrl}}" style="width: 100%; height: auto; margin-top: 10px;"></image>
+        <button bindtap="navigateToComposeMessage" class="message-button">Message</button>
         <button bindtap="deleteActivity" data-index="{{index}}" class="delete-button">Delete</button>
       </view>
     </block>

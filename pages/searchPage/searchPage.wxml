@@ -2,7 +2,7 @@
     <view class="top-search-container">
         <input type="text" placeholder="Search..." class="search-input"/>
         <picker mode="selector" value="{{cityIndex}}" range="{{cityArray}}" bindchange="updateCity">
-            <view class="input-field">City: {{cityArray[cityIndex]}}</view>
+            <view class="input-field">{{cityArray[cityIndex]}}</view>
         </picker>
     </view>
     <view class="search-container">
@@ -23,20 +23,25 @@
         </view>
     </view>
 
-  <button bindtap="submitSearch">Search</button>
+    <button bindtap="submitSearch" class="submit-search-button">Search</button>
+
 </view>
 
 <view class="trending-container">
   <text class="trending-title">Trending Activities</text>
-  <button bindtap="goToActivitiesList" class="fab-button">Activities</button>
+  <view wx:for="{{trendingContent}}" wx:key="id">
+        <text>{{item.name}} at {{item.location}} on {{item.date}}</text>
+    </view>
 </view>
 
-  <view class="button-container" style="position: fixed; bottom: 0; width: 100%;">
-  <button class="circle-button" bindtap="goToPublishActivities">Publish</button>
-  <button class="circle-button" bindtap="goToWatchActivities">Watch</button>
-  <button class="circle-button" bindtap="goToChat">Message</button>
-  <button class="circle-button" bindtap="goToInfo">Info</button>
+<view class="button-container">
+  <button class="rect-button" bindtap="goToPublishActivities">Publish</button>
+  <button class="rect-button" bindtap="goToWatchActivities">Watch</button>
+  <button class="rect-button" bindtap="goToChat">Message</button>
+  <button class="rect-button" bindtap="goToInfo">Info</button>
+  <button class="rect-button" bindtap="goToActivitiesList">Activities</button>
 </view>
+
 
 
 

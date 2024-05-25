@@ -3,86 +3,85 @@
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    background-color: #4fb0d6;
   }
   
   .search-input {
-    flex-grow: 1;
-    margin-right: 10px;
+    flex-grow: 2;  /* Allows the search bar to grow twice as much as the dropdown */
     padding: 10px;
-    border: 1px solid #f0f0f0;;
-    border-radius: 4px;
-  }
-  .search-container {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    background-color: #f0f0f0;
-  }
-  
-  .search-input {
-    padding: 10px;
-    margin-bottom: 10px;
+    margin-right: 10px;  /* Ensures space between the search input and the dropdown */
     border: 1px solid #ccc;
     border-radius: 4px;
   }
   
-  .input-field {
-    padding: 10px;
+  .input-field, picker {
+    flex-grow: 1;  /* Less growth than the search bar */
+    max-width: 200px;  /* Limits the maximum width of the dropdown */
+    padding: 6px 10px;  /* Slightly smaller vertical padding */
     background-color: white;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 14px;  /* Smaller font size */
+    white-space: nowrap;  /* Prevents the text from wrapping onto the next line */
+    overflow: hidden;  /* Hides any overflow that doesn't fit in the box */
+    text-overflow: ellipsis;  /* Adds ellipsis if the text overflows */
+}
+  
+.search-container {
+    display: flex;
+    flex-direction: column;  /* Keeps the column direction */
+    padding: 10px;
+    text-align: left;
+    align-items: flex-start; /* Forces all child elements to start from the left */
   }
   
   .toggle-button {
+    display: block;  /* Ensures the button behaves as a block element */
+    width: auto;  /* Adapts the width to fit the content */
+    margin: 0;  /* Removes any margin that might affect alignment */
     padding: 10px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
+    background-color: white;  /* Sets background color to white */
+    color: #007BFF;  /* Sets text color to blue */
     border-radius: 4px;
-    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: left;
+    margin-left: 0 !important; /* Ensures the button is aligned to the left with no margin */
   }
   
-
+  .submit-search-button {
+    padding: 10px;
+    background-color: #007BFF;  /* Blue background */
+    color: white;  /* White text */
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+    width: auto;  /* Adapts the width to fit the content */
+    display: block;  /* Ensures the button behaves as a block element */
+    margin: 10px 0;  /* Adds vertical margin for spacing, no horizontal margin */
+}
   
 /* Existing styles */
 
-/* Style for circular buttons */
-.circle-button {
-    display: inline-block; /* Aligns buttons side by side */
-    width: 50px; /* Smaller width for the button */
-    height: 50px; /* Smaller height for the button */
-    line-height: 50px; /* Center the text vertically */
-    margin: 10px; /* Add some space around the buttons */
-    border-radius: 100%; /* Make the buttons round */
-    background-color: #FFA500; /* Light blue background */
-    border: none; /* No border */
-    text-align: center; /* Center the text horizontally */
-    color: white; /* White text color */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow for some depth */
-    font-size: 14px; /* Adjust the font size as desired */
-    vertical-align: middle; /* Aligns inline-block elements to middle */
-  }
-  
-  /* Container for the buttons */
-  .button-container {
+/* Style for rectangle buttons */
+.rect-button {
+    display: inline-block; /* Keeps buttons in line */
+    width: auto; /* Adjust width based on content */
+    height: auto; /* Height adjusts to content */
+    padding: 10px 20px; /* Adequate padding for readability */
+    margin: 10px; /* Space around the buttons */
+    background-color: #007BFF; /* Example background color, adjust as needed */
+    border: none; /* No border for a cleaner look */
+    text-align: left; /* Center text horizontally */
+    color: white; /* Text color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    font-size: 14px; /* Font size */
+    border-radius: 4px; /* Slight rounding of corners */
+}
+
+.button-container {
     display: flex;
-    justify-content: space-around; /* Distribute space around items */
-    align-items: center; /* Center items vertically */
-  }
-  /* FAB container style (modified) */
-.fab-container {
-    bottom: 20px; /* Distance from bottom of its parent element */
-    right: 20px; /* Distance from right of its parent element */
-    z-index: 10; /* Ensure it's above other elements */
-  }
-  
-/* FAB Button style (modified) */
-/* FAB Button (absolute positioning) */
-.fab-button {
-    position: absolute; /* Absolute positioning within viewport */
-    bottom: 140px; /* Distance from bottom of viewport */
-    right: 140px; /* Distance from right of viewport */
-    z-index: 10; /* Ensure it's above other elements */
-  }
+    justify-content: space-around; /* Evenly space items */
+    align-items: left !important; /* Align items vertically */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

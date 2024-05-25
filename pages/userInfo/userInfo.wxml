@@ -20,10 +20,11 @@
     <view class="upload-button" bindtap="chooseImage">
       <text class="upload-text">+ Choose Photos</text>
     </view>
-    <view class="image-preview" wx:for="{{ images }}" wx:for-item="image" wx:key="index">
-      <image class="preview-image" src="{{ image }}" />
-      <icon class="remove-icon" type="delete" bindtap="removeImage" data-index="{{ index }}" />
-    </view>
+    <view class="image-container" wx:for="{{images}}" wx:key="index">
+  <image src="{{item}}" mode="aspectFit" style="width: 100px; height: 100px;"></image>
+</view>
+
+
   </view>
   <button type="primary" bindtap="submitInfo">Submit Info</button>
 </view>

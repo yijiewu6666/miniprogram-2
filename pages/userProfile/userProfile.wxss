@@ -1,2 +1,56 @@
 /* userProfile.wxss */
 /* Add your CSS styling here */
+/* General container styling for the info sections */
+.info-container {
+    padding: 10px;
+    background-color: #f8f8f8; /* Light grey background */
+  }
+  
+  /* Styling for each user info block */
+  .user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px; /* Space between info items */
+  }
+  
+  /* Labels for each info item */
+  .info-label {
+    color: #333; /* Dark grey color for text */
+    font-weight: bold; /* Make the label text bold */
+    margin-right: 10px; /* Space between label and text */
+  }
+  
+  /* Text next to labels */
+  .info-text {
+    flex: 1; /* Take remaining space */
+    color: #666; /* Medium grey color for text */
+  }
+  
+  /* Container for images */
+  .image-preview {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 10px;
+  }
+  
+  /* Individual images styling */
+  .preview-image {
+    width: 80px; /* Smaller width for images */
+    height: 80px; /* Smaller height for images */
+    margin-right: 5px; /* Space between images */
+    margin-bottom: 5px; /* Space below images */
+  }
+  
+  /* Styling for the Edit Profile button */
+  button {
+    background-color: #007BFF!important; /* Blue background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding around text */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 10px; /* Space above the button */
+    width: auto; /* Auto width based on content */
+    display: block; /* Block display to fit width of container */
+    text-align: center; /* Center text */
+  }
+  
